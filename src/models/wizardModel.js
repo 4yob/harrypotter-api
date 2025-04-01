@@ -2,7 +2,10 @@ const pool = require("../config/database");
 
 const getWizards = async () => {
     const result = await pool.query(
-        `SELECT wizards.*, houses.name AS house_name FROM wizards LEFT JOIN houses ON wizards.house_id = houses.id`
+        `   SELECT wizards.*, houses.name AS house_name
+            FROM wizards
+            LEFT JOIN houses ON wizards.house_id = houses.id
+        `
     );
     return result.rows;
 };
