@@ -5,7 +5,7 @@ const getAllWizards = async (req, res) => {
         const wizards = await wizardModel.getWizards();
         res.json(wizards);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao buscar bruxos." });
+        res.status(500).json({ message: "Erro ao buscar magos." });
     }
 };
 
@@ -13,11 +13,11 @@ const getWizard = async (req, res) => {
     try {
         const wizard = await wizardModel.getWizardById(req.params.id);
         if (!wizard) {
-            return res.status(404).json({ message: "Bruxo não encontrado." });
+            return res.status(404).json({ message: "Mago não encontrado." });
         }
         res.json(wizard);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao buscar bruxo." });
+        res.status(500).json({ message: "Erro ao buscar mago." });
     }
 };
 
@@ -27,7 +27,7 @@ const createWizard = async (req, res) => {
         const newWizard = await wizardModel.createWizard(name, house_id);
         res.status(201).json(newWizard);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao criar bruxo." });
+        res.status(500).json({ message: "Erro ao criar mago." });
     }
 };
 
