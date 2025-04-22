@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const wizardController = require("../controllers/wizardController");
-const upload = require("../config/upload"); 
+const upload = require("../config/upload");
+const apiKeyMiddleware = require('../config/apiKey');
 
+
+router.use(apiKeyMiddleware);
 /**
  * @swagger
  * tags:
